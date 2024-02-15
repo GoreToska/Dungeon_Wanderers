@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
@@ -11,12 +10,11 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Movement Settings")]
 	[SerializeField] private float _speed;
 	[SerializeField] private float _gravity;
+	[SerializeField] protected float _rotationSpeed;
 
-	[Header("Camera Settings")]
-	[SerializeField] private Transform _rotationPivot;
-	[SerializeField] private float _minLookAngle = 40;
-	[SerializeField] private float _maxLookAngle = 340f;
-	[SerializeField] private float _sensitivity = 1f;
+	private Quaternion _lastRotation;
+	private Camera _camera;
+	private Vector3 _moveDirection;
 	private MovementHandler _movementHandler;
 	private CharacterController _characterController;
 
@@ -24,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
 	private void Construct(MovementHandler movementHandler)
 	{
 		_movementHandler = movementHandler;
-
-		Debug.Log($"Current movement handler on this player - {_movementHandler.GetType()}");
 	}
 
 	private void Awake()
@@ -34,18 +30,25 @@ public class PlayerMovement : MonoBehaviour
 
 		Debug.Log("TODO");
 		Cursor.visible = false;
+		_camera = Camera.main;
+		_lastRotation = transform.localRotation;
 	}
 
 	private void Update()
 	{
+		CalculateMovementAxis();
 		HandleGravity();
 		HandleMovement();
-		HandleRotation();
 	}
 
 	private void HandleMovement()
 	{
-		_characterController.Move(_movementHandler.MovementDirection * Time.deltaTime * _speed);
+		_characterController.Move(_moveDirection * Time.deltaTime * _speed);
+
+		if (_movementHandler.MovementDirection != Vector3.zero)
+		{
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_moveDirection), _rotationSpeed * Time.deltaTime);
+		}
 	}
 
 	private void HandleGravity()
@@ -53,32 +56,13 @@ public class PlayerMovement : MonoBehaviour
 		_characterController.Move(Vector3.down * Time.deltaTime * _gravity);
 	}
 
-	private void HandleRotation()
+	private void CalculateMovementAxis()
 	{
-		if (_movementHandler.RotationDirection == Vector3.zero)
-			return;
+		_moveDirection =
+			new Vector3(_camera.transform.forward.x, 0, _camera.transform.forward.z) * _movementHandler.MovementDirection2D.y;
+		_moveDirection = _moveDirection +
+			new Vector3(_camera.transform.right.x, 0, _camera.transform.right.z) * _movementHandler.MovementDirection2D.x;
 
-		//_rotationPivot.Rotate(0f, _movementHandler.RotationDirection.y * _sensitivity * Time.deltaTime, 0f, Space.World);
-		//_rotationPivot.Rotate(-_movementHandler.RotationDirection.x * _sensitivity * Time.deltaTime, 0f, 0f, Space.Self);
-
-		_rotationPivot.rotation *= Quaternion.AngleAxis(_movementHandler.RotationDirection.x * _sensitivity * Time.deltaTime, Vector3.up);
-		_rotationPivot.rotation *= Quaternion.AngleAxis(_movementHandler.RotationDirection.y * _sensitivity * Time.deltaTime, Vector3.right);
-
-		var angles = _rotationPivot.localEulerAngles;
-		angles.z = 0;
-
-		var angle = _rotationPivot.localEulerAngles.x;
-
-		if (angle > 180 && angle < _maxLookAngle)
-		{
-			angles.x = _maxLookAngle;
-		}
-		else if (angle < 180 && angle > _minLookAngle)
-		{
-			angles.x = _minLookAngle;
-		}
-
-		_rotationPivot.localEulerAngles = angles;
-		_rotationPivot.localEulerAngles = new Vector3(angles.x, angles.y, 0);
+		_moveDirection.Normalize();
 	}
 }

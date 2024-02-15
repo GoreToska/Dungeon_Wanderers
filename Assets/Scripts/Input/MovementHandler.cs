@@ -9,6 +9,7 @@ public class MovementHandler : IDisposable
 	private IInputService _inputService;
 
 	public Vector3 MovementDirection { get; private set; }
+	public Vector2 MovementDirection2D { get; private set; }
 	public Vector3 RotationDirection { get; private set; }
 
 	public event UnityAction AttackEvent;
@@ -37,6 +38,7 @@ public class MovementHandler : IDisposable
 		var normalizedVector = movementVector.normalized;
 
 		MovementDirection = new Vector3(normalizedVector.x, 0, normalizedVector.y);
+		MovementDirection2D = movementVector;
 	}
 
 	private void OnRotate(Vector2 rotationVector)
