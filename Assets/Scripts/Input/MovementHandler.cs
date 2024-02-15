@@ -43,7 +43,7 @@ public class MovementHandler : IDisposable
 	{
 		//var normalizedVector = rotationVector.normalized;
 
-		RotationDirection = new Vector3(rotationVector.y, rotationVector.x, 0);
+		RotationDirection = new Vector3(rotationVector.x, rotationVector.y, 0);
 	}
 
 	private void OnAttack()

@@ -3327,8 +3327,8 @@ MonoBehaviour:
   _speed: 5
   _gravity: 6
   _rotationPivot: {fileID: 1755825911}
-  _minLookAngle: 10
-  _maxLookAngle: 60
+  _minLookAngle: 40
+  _maxLookAngle: 340
   _sensitivity: 40
 --- !u!4 &1894999790 stripped
 Transform:

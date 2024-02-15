@@ -14,14 +14,11 @@ public class PlayerMovement : MonoBehaviour
 
 	[Header("Camera Settings")]
 	[SerializeField] private Transform _rotationPivot;
-	[SerializeField] private float _minLookAngle = -30f;
-	[SerializeField] private float _maxLookAngle = 60f;
+	[SerializeField] private float _minLookAngle = 40;
+	[SerializeField] private float _maxLookAngle = 340f;
 	[SerializeField] private float _sensitivity = 1f;
 	private MovementHandler _movementHandler;
 	private CharacterController _characterController;
-
-	private float _x = 0;
-	private float _y = 0;
 
 	[Inject]
 	private void Construct(MovementHandler movementHandler)
@@ -61,7 +58,27 @@ public class PlayerMovement : MonoBehaviour
 		if (_movementHandler.RotationDirection == Vector3.zero)
 			return;
 
-		_rotationPivot.Rotate(0f, _movementHandler.RotationDirection.y * _sensitivity * Time.deltaTime, 0f, Space.World);
-		_rotationPivot.Rotate(-_movementHandler.RotationDirection.x * _sensitivity * Time.deltaTime, 0f, 0f, Space.Self);
+		//_rotationPivot.Rotate(0f, _movementHandler.RotationDirection.y * _sensitivity * Time.deltaTime, 0f, Space.World);
+		//_rotationPivot.Rotate(-_movementHandler.RotationDirection.x * _sensitivity * Time.deltaTime, 0f, 0f, Space.Self);
+
+		_rotationPivot.rotation *= Quaternion.AngleAxis(_movementHandler.RotationDirection.x * _sensitivity * Time.deltaTime, Vector3.up);
+		_rotationPivot.rotation *= Quaternion.AngleAxis(_movementHandler.RotationDirection.y * _sensitivity * Time.deltaTime, Vector3.right);
+
+		var angles = _rotationPivot.localEulerAngles;
+		angles.z = 0;
+
+		var angle = _rotationPivot.localEulerAngles.x;
+
+		if (angle > 180 && angle < _maxLookAngle)
+		{
+			angles.x = _maxLookAngle;
+		}
+		else if (angle < 180 && angle > _minLookAngle)
+		{
+			angles.x = _minLookAngle;
+		}
+
+		_rotationPivot.localEulerAngles = angles;
+		_rotationPivot.localEulerAngles = new Vector3(angles.x, angles.y, 0);
 	}
 }
