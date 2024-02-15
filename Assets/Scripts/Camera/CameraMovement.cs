@@ -14,10 +14,10 @@ public class CameraMovement : MonoBehaviour
 	[SerializeField] private Vector3 _offset;
 
 
-	private MovementHandler _movementHandler;
+	private InputHandler _movementHandler;
 
 	[Inject]
-	private void Construct(MovementHandler movementHandler)
+	private void Construct(InputHandler movementHandler)
 	{
 		_movementHandler = movementHandler;
 	}

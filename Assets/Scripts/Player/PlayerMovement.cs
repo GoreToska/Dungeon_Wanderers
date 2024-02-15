@@ -12,14 +12,15 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float _gravity;
 	[SerializeField] protected float _rotationSpeed;
 
+	private bool _isStopped = false;
 	private Quaternion _lastRotation;
 	private Camera _camera;
 	private Vector3 _moveDirection;
-	private MovementHandler _movementHandler;
+	private InputHandler _movementHandler;
 	private CharacterController _characterController;
 
 	[Inject]
-	private void Construct(MovementHandler movementHandler)
+	private void Construct(InputHandler movementHandler)
 	{
 		_movementHandler = movementHandler;
 	}
@@ -41,8 +42,21 @@ public class PlayerMovement : MonoBehaviour
 		HandleMovement();
 	}
 
+	public void StopMovement()
+	{
+		_isStopped = true;
+	}
+
+	public void ResumeMovement()
+	{
+		_isStopped = false;
+	}
+
 	private void HandleMovement()
 	{
+		if (_isStopped)
+			return;
+
 		_characterController.Move(_moveDirection * Time.deltaTime * _speed);
 
 		if (_movementHandler.MovementDirection != Vector3.zero)

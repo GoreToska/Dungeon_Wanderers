@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MovementHandler : IDisposable
+public class InputHandler : IDisposable
 {
 	private IInputService _inputService;
 
@@ -15,7 +15,7 @@ public class MovementHandler : IDisposable
 	public event UnityAction AttackEvent;
 	public event UnityAction AlternativeAttackEvent;
 
-	public MovementHandler(IInputService inputService)
+	public InputHandler(IInputService inputService)
 	{
 		_inputService = inputService;
 

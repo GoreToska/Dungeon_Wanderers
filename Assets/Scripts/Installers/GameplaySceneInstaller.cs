@@ -6,6 +6,6 @@ public class GameplaySceneInstaller : MonoInstaller
 	{
 		// register
 		Container.Bind<IInputService>().To<StandardInput>().FromNew().AsSingle();
-		Container.Bind<MovementHandler>().FromNew().AsSingle();
+		Container.Bind<InputHandler>().FromNew().AsSingle();
 	}
 }

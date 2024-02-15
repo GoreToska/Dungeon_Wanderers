@@ -16,9 +16,12 @@ public class PlayerAnimation : MonoBehaviour
 
 	private void Update()
 	{
-		Debug.Log(_characterController.velocity.magnitude);
-		_animator.SetFloat("Speed", _characterController.velocity.magnitude);
+		_animator.SetFloat("Speed", _characterController.velocity.magnitude, 0.05f, Time.deltaTime);
 	}
 
-
+	public void PlayLightAttackAnimation(int attackCount)
+	{
+		_animator.SetInteger("AttackCount", attackCount);
+		_animator.SetTrigger("LightAttack");
+	}
 }

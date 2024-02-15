@@ -131,8 +131,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -926,7 +926,39 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.502998
+        functionName: EnableDamageColliders
+        data: Heavy
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.70578116
+        functionName: DisableDamageColliders
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.798457
+        functionName: EndAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: ResumeMovement
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -955,7 +987,39 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.35909393
+        functionName: EnableDamageColliders
+        data: Light
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46302465
+        functionName: DisableDamageColliders
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.58821356
+        functionName: EndAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: ResumeMovement
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -1013,7 +1077,39 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.21518986
+        functionName: EnableDamageColliders
+        data: Light
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2879524
+        functionName: DisableDamageColliders
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.58262575
+        functionName: EndAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: ResumeMovement
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
