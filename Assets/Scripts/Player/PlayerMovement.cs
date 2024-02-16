@@ -8,10 +8,12 @@ using Zenject;
 public class PlayerMovement : MonoBehaviour
 {
 	[Header("Movement Settings")]
-	[SerializeField] private float _speed;
+	[SerializeField] private float _runSpeed;
+	[SerializeField] private float _walkSpeed;
 	[SerializeField] private float _gravity;
 	[SerializeField] protected float _rotationSpeed;
 
+	private bool _isWalking = false;
 	private bool _isStopped = false;
 	private Quaternion _lastRotation;
 	private Camera _camera;
@@ -39,7 +41,15 @@ public class PlayerMovement : MonoBehaviour
 	{
 		CalculateMovementAxis();
 		HandleGravity();
-		HandleMovement();
+
+		if (_isWalking)
+		{
+			HandleMovement(_walkSpeed);
+		}
+		else
+		{
+			HandleMovement(_runSpeed);
+		}
 	}
 
 	public void StopMovement()
@@ -52,12 +62,22 @@ public class PlayerMovement : MonoBehaviour
 		_isStopped = false;
 	}
 
-	private void HandleMovement()
+	public void SetWalking()
+	{
+		_isWalking = true;
+	}
+
+	public void SetRunning()
+	{
+		_isWalking = false;
+	}
+
+	private void HandleMovement(float speed)
 	{
 		if (_isStopped)
 			return;
 
-		_characterController.Move(_moveDirection * Time.deltaTime * _speed);
+		_characterController.Move(_moveDirection * Time.deltaTime * speed);
 
 		if (_movementHandler.MovementDirection != Vector3.zero)
 		{

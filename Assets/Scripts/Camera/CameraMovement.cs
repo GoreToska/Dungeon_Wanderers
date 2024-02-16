@@ -13,7 +13,6 @@ public class CameraMovement : MonoBehaviour
 	[SerializeField] private Transform _followTarget;
 	[SerializeField] private Vector3 _offset;
 
-
 	private InputHandler _movementHandler;
 
 	[Inject]

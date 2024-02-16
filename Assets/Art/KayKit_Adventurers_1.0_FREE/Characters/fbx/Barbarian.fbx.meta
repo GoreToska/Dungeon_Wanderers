@@ -952,7 +952,15 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: ResumeMovement
+        functionName: SetRunning
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: SetWalking
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
           type: 3}
@@ -1013,7 +1021,15 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: ResumeMovement
+        functionName: SetRunning
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: SetWalking
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
           type: 3}
@@ -1094,7 +1110,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.58262575
+      - time: 0.38213915
         functionName: EndAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
@@ -1103,7 +1119,15 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: ResumeMovement
+        functionName: SetRunning
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: SetWalking
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
           type: 3}

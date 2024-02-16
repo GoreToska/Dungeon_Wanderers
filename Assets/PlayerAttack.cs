@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
 			return;
 
 		_playerAnimation.PlayLightAttackAnimation(_currentAttackCounter);
-		_playerMovement.StopMovement();
+		//_playerMovement.SetWalking();
 		StartAttack();
 
 		_timer = 0;

@@ -267,10 +267,10 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: TopBody
     m_StateMachine: {fileID: 8221250409216512827}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: dda823f53fc68d4479f9d9e24b9b78e0, type: 2}
     m_Motions: []
     m_Behaviours: []
-    m_BlendingMode: 0
+    m_BlendingMode: 1
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 1
     m_IKPass: 0
@@ -382,7 +382,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -30, y: -50, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_EntryPosition: {x: -40, y: 170, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1999238145172122534}

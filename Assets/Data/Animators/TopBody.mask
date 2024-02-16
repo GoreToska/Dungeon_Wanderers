@@ -20,15 +20,15 @@ AvatarMask:
   - m_Path: Barbarian_Head
     m_Weight: 1
   - m_Path: Barbarian_LegLeft
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Barbarian_LegRight
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig
     m_Weight: 1
   - m_Path: Rig/root
     m_Weight: 1
   - m_Path: Rig/root/control-toe-roll.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig/root/control-toe-roll.l/control-heel-roll.l
     m_Weight: 1
   - m_Path: Rig/root/control-toe-roll.l/control-heel-roll.l/control-foot-roll.l
@@ -40,7 +40,7 @@ AvatarMask:
   - m_Path: Rig/root/control-toe-roll.l/control-heel-roll.l/IK-toe.l
     m_Weight: 1
   - m_Path: Rig/root/control-toe-roll.r
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig/root/control-toe-roll.r/control-heel-roll.r
     m_Weight: 1
   - m_Path: Rig/root/control-toe-roll.r/control-heel-roll.r/control-foot-roll.r
@@ -118,6 +118,6 @@ AvatarMask:
   - m_Path: Rig/root/hips/upperleg.r/lowerleg.r/foot.r/toes.r
     m_Weight: 1
   - m_Path: Rig/root/kneeIK.l
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig/root/kneeIK.r
-    m_Weight: 1
+    m_Weight: 0
