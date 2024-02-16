@@ -2471,6 +2471,12 @@ MonoBehaviour:
   _hp: 100
   _maxDefence: 0
   _defence: 0
+  _maxStamina: 100
+  _stamina: 100
+  _timeToRegenHP: 5
+  _timeToRegenStamina: 3
+  _hpRegen: 5
+  _staminaRegen: 25
 --- !u!23 &1279462481
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3621,6 +3627,36 @@ PrefabInstance:
       propertyPath: _walkSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _hpRegen
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _stamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _maxStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _staminaRegen
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _timeToRegenHP
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487471698570875554, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: _timeToRegenStamina
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3997028654040780015, guid: df3528d10a8cb814698a0dae273b17ae,
         type: 3}
       propertyPath: _attackCooldown
@@ -3630,6 +3666,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Damagable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485003439377398356, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6305372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485003439377398356, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5376406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485003439377398356, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.23169719
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485003439377398356, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.6561119
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485003439377398356, guid: df3528d10a8cb814698a0dae273b17ae,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.024781682
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

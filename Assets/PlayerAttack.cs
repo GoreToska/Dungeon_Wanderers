@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(PlayerAnimation), typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerAnimation), typeof(PlayerMovement), typeof(CharacterStatus))]
 public class PlayerAttack : MonoBehaviour
 {
 	[SerializeField] private float _lightDamage;
@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 	private PlayerAnimation _playerAnimation;
 	private InputHandler _inputHandler;
 	private PlayerMovement _playerMovement;
+	private CharacterStatus _characterStatus;
 
 	private float _timer = 0;
 	private int _maxAttackCounter = 3;
@@ -32,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
 		_playerAnimation = GetComponent<PlayerAnimation>();
 		_inputHandler.AttackEvent += Attack;
 		_playerMovement = GetComponent<PlayerMovement>();
+		_characterStatus = GetComponent<CharacterStatus>();
 
 		_damageColliders = GetComponentsInChildren<DamageCollider>().ToList();
 		DisableDamageColliders();
@@ -53,11 +55,10 @@ public class PlayerAttack : MonoBehaviour
 
 	private void Attack()
 	{
-		if (!_canAttack)
+		if (!_canAttack || !_characterStatus.HasStamina())
 			return;
 
 		_playerAnimation.PlayLightAttackAnimation(_currentAttackCounter);
-		//_playerMovement.SetWalking();
 		StartAttack();
 
 		_timer = 0;
@@ -85,12 +86,15 @@ public class PlayerAttack : MonoBehaviour
 		{
 			case "Light":
 				EnableDamageColliders(_lightDamage);
+				_characterStatus.TakeStaminaDamage(_lightDamage);
 				break;
 			case "Heavy":
 				EnableDamageColliders(_heavyDamage);
+				_characterStatus.TakeStaminaDamage(_heavyDamage);
 				break;
 			default:
 				EnableDamageColliders(_lightDamage);
+				_characterStatus.TakeStaminaDamage(_lightDamage);
 				break;
 		}
 	}
@@ -100,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
 		foreach (var dc in _damageColliders)
 		{
 			dc.ClearTargets();
-			dc.enabled = false;
+			dc.DisableCollider();
 		}
 	}
 
@@ -109,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
 		foreach (var dc in _damageColliders)
 		{
 			dc.SetDamage(damage);
-			dc.enabled = true;
+			dc.EnableCollider();
 		}
 	}
 }
