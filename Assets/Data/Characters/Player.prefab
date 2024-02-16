@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 7810326127337163069}
   - component: {fileID: 6516437492071485011}
   - component: {fileID: 5286908448993903226}
-  - component: {fileID: 8485003439377398356}
+  - component: {fileID: 5467359433118687368}
   m_Layer: 3
   m_Name: 1H_Axe
   m_TagString: Untagged
@@ -384,8 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a729e59788bbbb54e9445ba9f7053dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &8485003439377398356
-BoxCollider:
+  _colliderType: 0
+--- !u!135 &5467359433118687368
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -403,8 +404,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.71432036, y: 0.63053715, z: 0.18496189}
-  m_Center: {x: -0.23169705, y: 0.6561096, z: -0.0000007998741}
+  m_Radius: 0.52931947
+  m_Center: {x: -0.2316966, y: 0.84506047, z: -0.00000067534637}
 --- !u!1 &2408243215334471266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,8 +2008,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5932300097239491340}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6149169, z: -0, w: 0.788592}
-  m_LocalPosition: {x: 4.754274, y: 1.87, z: 0.45484447}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6, y: 1.87, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2401,6 +2402,8 @@ GameObject:
   - component: {fileID: 6615965417963759081}
   - component: {fileID: 7688544217819710016}
   - component: {fileID: 250895243446841154}
+  - component: {fileID: 4701784664764815066}
+  - component: {fileID: 4305906051747649265}
   m_Layer: 3
   m_Name: Barbarian_Round_Shield
   m_TagString: Untagged
@@ -2474,6 +2477,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &4701784664764815066
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115755332116303559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7
+  m_Center: {x: -0.0000029216637, y: -0.000014618866, z: 0.021204742}
+--- !u!114 &4305906051747649265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115755332116303559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a729e59788bbbb54e9445ba9f7053dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliderType: 1
 --- !u!1 &8063087577492540807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,9 +2633,11 @@ GameObject:
   - component: {fileID: 4380189588757892584}
   - component: {fileID: 3997028654040780015}
   - component: {fileID: 3487471698570875554}
+  - component: {fileID: 4478121226424965542}
+  - component: {fileID: 6086560454797994108}
   m_Layer: 3
   m_Name: Barbarian
-  m_TagString: Untagged
+  m_TagString: Damagable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2611,7 +2650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419665001254896744}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6149169, z: -0, w: 0.788592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2624,7 +2663,7 @@ Transform:
   - {fileID: 6084145697065616141}
   - {fileID: 4612435828522963193}
   m_Father: {fileID: 1046528579406146069}
-  m_LocalEulerAnglesHint: {x: 0, y: -75.892, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3321533127890484364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,7 +2676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _runSpeed: 5
+  _walkSpeed: 2.5
   _gravity: 6
   _rotationSpeed: 10
 --- !u!143 &5482211109159005434
@@ -2713,7 +2753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lightDamage: 15
   _heavyDamage: 25
-  _attackCooldown: 1.5
+  _attackCooldown: 1.8
 --- !u!114 &3487471698570875554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,6 +2770,38 @@ MonoBehaviour:
   _hp: 250
   _maxDefence: 0
   _defence: 0
+  _maxStamina: 100
+  _stamina: 100
+  _timeToRegenHP: 3
+  _timeToRegenStamina: 2
+  _hpRegen: 5
+  _staminaRegen: 20
+  _hpBar: {fileID: 0}
+  _staminaBar: {fileID: 0}
+--- !u!114 &4478121226424965542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419665001254896744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a14c9047bab9343be0a2ad4a9ce86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6086560454797994108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419665001254896744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59cf37012519014bbcf694d9fa56ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8441564698191809979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2823,7 +2895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8733071645758413676}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6149169, z: -0, w: 0.788592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

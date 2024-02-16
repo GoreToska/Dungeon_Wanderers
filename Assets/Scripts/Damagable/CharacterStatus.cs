@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 {
@@ -15,6 +17,13 @@ public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 	[SerializeField] private float _timeToRegenStamina;
 	[SerializeField] private float _hpRegen;
 	[SerializeField] private float _staminaRegen;
+
+	[SerializeField] private StatusBar _hpBar;
+	[SerializeField] private StatusBar _staminaBar;
+
+	public event UnityAction<float> OnHPChange;
+	public event UnityAction<float> OnDefenceChange;
+	public event UnityAction<float> OnStaminaChange;
 
 	private float _staminaTimer = 0;
 	private float _hpTimer = 0;
@@ -78,6 +87,11 @@ public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 			_hp = 0;
 			Debug.Log("Dead!");
 		}
+
+		if (_hpBar)
+			_hpBar.SetValue(_hp, _maxHP);
+
+		OnHPChange?.Invoke(_hp);
 	}
 
 	public void TakeHeal(float heal)
@@ -88,6 +102,11 @@ public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 		{
 			_hp = _maxHP;
 		}
+
+		if (_hpBar)
+			_hpBar.SetValue(_hp, _maxHP);
+
+		OnHPChange?.Invoke(_hp);
 	}
 
 	public void TakeStaminaDamage(float damage, bool ignoreDefence = false)
@@ -99,6 +118,11 @@ public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 		{
 			_stamina = 0;
 		}
+
+		if (_staminaBar)
+			_staminaBar.SetValue(_stamina, _maxStamina);
+
+		OnStaminaChange?.Invoke(_stamina);
 	}
 
 	public void RegenStamina(float value)
@@ -109,5 +133,10 @@ public class CharacterStatus : MonoBehaviour, IHealable, IDamagable, IStamina
 		}
 
 		_stamina += value;
+
+		if (_staminaBar)
+			_staminaBar.SetValue(_stamina, _maxStamina);
+
+		OnStaminaChange?.Invoke(_stamina);
 	}
 }

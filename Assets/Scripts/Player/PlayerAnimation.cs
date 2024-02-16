@@ -19,9 +19,15 @@ public class PlayerAnimation : MonoBehaviour
 		_animator.SetFloat("Speed", _characterController.velocity.magnitude, 0.05f, Time.deltaTime);
 	}
 
-	public void PlayLightAttackAnimation(int attackCount)
+	public virtual void PlayAttackAnimation(int attackCount)
 	{
 		_animator.SetInteger("AttackCount", attackCount);
-		_animator.SetTrigger("LightAttack");
+		_animator.SetTrigger("Attack");
+	}
+
+	public virtual void PlayAlternativeAttackAnimation(int attackCount)
+	{
+		_animator.SetInteger("AttackCount", attackCount);
+		_animator.SetTrigger("AlternativeAttack");
 	}
 }

@@ -1655,7 +1655,47 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: SetWalking
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.308461
+        functionName: EnableDamageColliders
+        data: Alternative
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.43637574
+        functionName: DisableAlternativeColliders
+        data: Alternative
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5242497
+        functionName: EndAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd0f7d70e6087a94e953a3c9a46f825a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.99600273
+        functionName: SetRunning
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f6eedfb738dd8fe44933bb40a4eff8ab,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

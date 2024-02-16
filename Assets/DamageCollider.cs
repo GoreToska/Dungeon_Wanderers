@@ -5,9 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DamageCollider : MonoBehaviour
 {
+	[SerializeField] private ColliderType _colliderType;
+
 	private Collider _collider;
 	private List<IDamagable> _damagedObjects = new List<IDamagable>();
 	private float _damage;
+
+	public ColliderType ColliderType => _colliderType;
 
 	private void Awake()
 	{
@@ -47,4 +51,10 @@ public class DamageCollider : MonoBehaviour
 			_damagedObjects.Add(damagable);
 		}
 	}
+}
+
+public enum ColliderType
+{
+	Damage,
+	Alternative
 }
